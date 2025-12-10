@@ -288,12 +288,12 @@
 						<table:template><Text text="{InvNumber}" ></Text></table:template>
 					</table:Column>
 					
-            		<!--  P2S-KSEF-SD: [KSEF_1_GAP_12]  Zmiany w apps Fiori dla eFakt startmj{ 
+            		<!--  P2S-KSEF-SD: [KSEF_1_GAP_12]  Zmiany w apps Fiori dla eFakt startmj{ -->
 					<table:Column sortProperty="ZZKSEFID" filterProperty="ZZKSEFID" width="110px" showFilterMenuEntry="true">
 						<Label text="{i18n>ZZKSEFID}" tooltip="{i18n>ZZKSEFID}"/>
 						<table:template><Text text="{ZZKSEFID}" ></Text></table:template>
 					</table:Column>		
-					  -->	
+					<!--  P2S-KSEF-SD: [KSEF_1_GAP_12]  Zmiany w apps Fiori dla eFakt  -->	
 				
 					<table:Column sortProperty="DlvNumber" filterProperty="DlvNumber" width="110px" showFilterMenuEntry="true">
 						<Label text="{i18n>DlvNumber}" tooltip="{i18n>DlvNumber}"/>
