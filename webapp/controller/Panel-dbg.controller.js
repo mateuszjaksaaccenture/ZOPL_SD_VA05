@@ -541,6 +541,7 @@ sap.ui.define([
            d.OrdSerNumList,
            d.OrdLock,
            d.InvNumber,
+		   d.ZZKSEFID, //P2S-KSEF-SD: [KSEF_1_GAP_12]  Zmiany w apps Fiori dla eFakt startmj {}
            d.DlvNumber,
            d.RcpNumber,
            d.OrdKorNum,
@@ -580,6 +581,7 @@ sap.ui.define([
        {id: 'OrdSerNumList', name: "Nr-y Ser.", type: 'string', width: 18},
        {id: 'OrdLock', name: "Blok.", type: 'string', width: 5},
        {id: 'InvNumber', name: "Nr Fakt.", type: 'string', width: 11},
+	   {id: 'ZZKSEFID', name: "Nr Ksef", type: 'string', width: 41}, //P2S-KSEF-SD: [KSEF_1_GAP_12]  Zmiany w apps Fiori dla eFakt startmj {}
        {id: 'DlvNumber', name: "Nr Dost.", type: 'string', width: 11},
        {id: 'RcpNumber', name: "Nr Parag.", type: 'string', width: 11},
        {id: 'OrdKorNum', name: "Nr Zlec. Kor.", type: 'string', width: 11},
@@ -615,6 +617,7 @@ sap.ui.define([
      		{value: "Nr-y Ser.", metadata: {style: basicReport.predefinedFormatters.header.id, type: 'string'}}, 	
      		{value: "Blok.", metadata: {style: basicReport.predefinedFormatters.header.id, type: 'string'}}, 	
      		{value: "Nr Fakt.", metadata: {style: basicReport.predefinedFormatters.header.id, type: 'string'}}, 
+			{value: "Nr Ksef", metadata: {style: basicReport.predefinedFormatters.header.id, type: 'string'}}, //P2S-KSEF-SD: [KSEF_1_GAP_12]  Zmiany w apps Fiori dla eFakt startmj {}
      		{value: "Nr Dost.", metadata: {style: basicReport.predefinedFormatters.header.id, type: 'string'}}, 
      		{value: "Nr Parag.", metadata: {style: basicReport.predefinedFormatters.header.id, type: 'string'}}, 
      		{value: "Nr Zlec. Kor.", metadata: {style: basicReport.predefinedFormatters.header.id, type: 'string'}}, 
