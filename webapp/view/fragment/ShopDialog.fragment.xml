@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="{i18n>DIALOG_WERKS}"
+		class="sapUiPopupWithPadding"
+		contentWidth="35rem"
+		items="{path: '/ShopSet'}"
+		multiSelect="true"
+		search="onFilterWerks"
+		confirm="_handleValueHelpClose"
+		growingScrollToLoad="true"
+		growing="true"
+		growingThreshold="20"
+		rememberSelections="true"
+		>
+		<!-- items="{/results}"  cancel="_handleValueHelpClose"-->
+		<StandardListItem
+			title="{Werks}"
+			info="{Stras} {Pstlz} {Ort01}"
+			description="{Name1} {Name2}" />
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Grupy Materiałowe"
+		class="sapUiPopupWithPadding"
+		items="{/results}"
+		search="onFilterGrupyMat"
+		confirm="_handleValueHelpClose"
+		cancel="_handleValueHelpClose">
+		<StandardListItem
+			title="{Matkl}"
+			description="{Wgbez60}" />
+	</SelectDialog>
+</core:FragmentDefinition>

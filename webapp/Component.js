@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/UIComponent","sap/ui/model/json/JSONModel","sap/ui/model/resource/ResourceModel","sap/ui/table/Table","sap/ui/table/Column","sap/ui/table/Row"],function(e,i,s){"use strict";return e.extend("sap.ui.zopl_sd_va05.Component",{metadata:{manifest:"json",includes:["scripts/FileSaver.js","scripts/excel-builder.compiled.min.js"]},init:function(){e.prototype.init.apply(this,arguments);var i=new s({bundleName:"sap.ui.zopl_sd_va05.i18n.i18n"});this.setModel(i,"i18n")}})});
+//# sourceMappingURL=Component.js.map

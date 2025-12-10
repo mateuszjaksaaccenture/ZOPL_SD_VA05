@@ -1,0 +1,4 @@
+<StandardListItem xmlns="sap.m"
+			title="{MaterialID}"
+			info="{ShopId}"
+			description="{Description}" />

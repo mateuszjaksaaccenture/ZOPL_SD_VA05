@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		multiSelect="true"
+		title="{i18n>DIALOG_SAL_MAN}"
+		class="sapUiPopupWithPadding"
+		contentWidth="35rem"
+		items="{/SalManSet}"
+		search="onFilterSalMan"
+		confirm="_handleValueHelpClose"
+		growingScrollToLoad="true"
+		growing="true"
+		growingThreshold="20"
+		rememberSelections="true">
+		<!-- items="{/results}" -->
+		<StandardListItem
+			title="{SalManId}"
+			description="{SalManName}" />
+	</SelectDialog>
+</core:FragmentDefinition>

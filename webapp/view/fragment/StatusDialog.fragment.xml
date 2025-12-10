@@ -1,0 +1,33 @@
+<!--<core:FragmentDefinition xmlns="sap.m"-->
+<!--	xmlns:core="sap.ui.core">-->
+<!--	<SelectDialog-->
+<!--		title="{i18n>DIALOG_STATUS}"-->
+<!--		class="sapUiPopupWithPadding"-->
+<!--		contentWidth="35rem"-->
+<!--		items="{/StatusListSet}"-->
+<!--		search="onFilterStatus"-->
+<!--		confirm="_handleValueHelpClose"-->
+<!--		cancel="_handleValueHelpClose">-->
+<!--		<StandardListItem-->
+<!--			title="{StatusName}"-->
+<!--			description="{ path : 'Status', formatter: '._formatStatusText'}"-->
+<!--		/>-->
+<!--	</SelectDialog>-->
+<!--</core:FragmentDefinition>-->
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="{i18n>DIALOG_STATUS}"
+class="sapUiPopupWithPadding"
+contentWidth="35rem"
+	confirm="_handleValueHelpClose"
+	cancel="_handleValueHelpClose">
+	
+		<StandardListItem
+			title="{i18n>OPEN}"
+		 />
+		 	<StandardListItem
+			title="{i18n>FINISHED_A}"
+		 />
+	</SelectDialog>
+</core:FragmentDefinition>

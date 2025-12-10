@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="{i18n>DIALOG_MATERIAL}"
+		class="sapUiPopupWithPadding"
+		contentWidth="35rem"
+		multiSelect="true"
+		search="onFilterMaterials"
+		confirm="_handleValueHelpClose"
+		growingScrollToLoad="true"
+		growing="true"
+		growingThreshold="20"
+		rememberSelections="true">
+		<!-- items="{/results}"  cancel="_handleValueHelpClose"-->
+
+	</SelectDialog>
+</core:FragmentDefinition>

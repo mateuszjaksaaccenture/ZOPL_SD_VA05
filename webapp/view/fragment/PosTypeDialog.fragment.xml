@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="{i18n>DIALOG_POS_TYPE}"
+		class="sapUiPopupWithPadding"
+		contentWidth="35rem"
+		items="{/PosTypeSet}"
+		multiSelect="true"
+		search="onFilterPosType"
+		confirm="_handleValueHelpClose"
+		cancel="_handleValueHelpClose"
+		rememberSelections="true">
+		<StandardListItem
+			title="{vkbur}"
+			description="{bezei}" />
+	</SelectDialog>
+</core:FragmentDefinition>

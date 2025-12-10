@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Numery Seryjne"
+		class="sapUiPopupWithPadding"
+		items="{/results}"
+		search="onFilterSerialNumber">
+		<StandardListItem  title="{SerNum}" />
+	</SelectDialog>
+</core:FragmentDefinition>

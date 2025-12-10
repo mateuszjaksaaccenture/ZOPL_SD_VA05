@@ -1,0 +1,84 @@
+{
+    "_version": "1.1.0",
+    "sap.app": {
+        "_version": "1.1.0",
+        "id": "sap.ui.zopl_sd_va05",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "title": "Raport zleceń",
+        "description": "Raport zleceń",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "dataSources": {
+            "MMRemote": {
+                "uri": "/sap/opu/odata/sap/ZOPL_SD_VA05_1_SRV/",
+                "uri1": "/sap/opu/odata/sap/ZOPL_SD_VA05_1_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        },
+        "sourceTemplate": {
+            "id": "@sap/ux-app-migrator:freestyle",
+            "version": "1.13.2",
+            "toolsId": "668032a2-864a-4d5e-8b8c-0da2a581b5e4"
+        }
+    },
+    "sap.ui": {
+        "_version": "1.1.0",
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_belize"
+        ]
+    },
+    "sap.ui5": {
+        "_version": "1.1.0",
+        "rootView": "sap.ui.zopl_sd_va05.view.App",
+        "dependencies": {
+            "minUI5Version": "1.30",
+            "libs": {
+                "sap.m": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "sap.ui.zopl_sd_va05.i18n.i18n"
+                }
+            },
+            "SN": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "CorrNo": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "MMmodel": {
+                "dataSource": "MMRemote"
+            },
+            "ZMmodel": {
+                "dataSource": "MMRemote"
+            },
+            "": {
+                "dataSource": "MMRemote",
+                "preload": true
+            }
+        },
+        "contentDensities": {
+            "compact": false,
+            "cozy": false
+        }
+    },
+    "sap.platform.abap": {
+        "uri": "/sap/bc/ui5_ui5/sap/zopl_sd_va05/webcontent",
+        "_version": "1.1.0"
+    }
+}

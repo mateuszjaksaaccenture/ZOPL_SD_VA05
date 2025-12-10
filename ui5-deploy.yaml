@@ -1,0 +1,24 @@
+specVersion: "4.0"
+metadata:
+  name: zoplsdva05tmp
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: FID
+          url: http://fid:8888
+          client: "100"
+        app:
+          name: ZOPL_SD_VA05
+          description: Raport Zlecen POS
+          package: ZOPL_SD_VA05
+          transport: FIDK903519
+        exclude:
+          - /test/

@@ -1,0 +1,369 @@
+<mvc:View controllerName="sap.ui.zopl_sd_va05.controller.Panel"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout"
+	xmlns:table="sap.ui.table"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:f="sap.f">
+	<Panel id="panel1" class="sapUiResponsiveMargin" width="auto">
+		<content>
+			<VBox id="vbFilter">		
+				<FlexBox id="dFrom" wrap="Wrap">
+					<FlexBox>
+							<Label text="{i18n>Werks}:" tooltip="{i18n>Werks}:" class="sapUiSmallMargin sapThemeHighlight-asColor" width="91px"/>
+							<Input id="shopId"  placeholder="{i18n>selectWerk}" valueLiveUpdate="true" width="100%" showValueHelp="true"
+							valueHelpOnly="true" valueHelpRequest="onOpenWerksDialog"/> 
+							<core:Icon src="sap-icon://reset"  class="sapUiSmallMargin sapThemeHighlight-asColor" app:mydata="shopId" press="onResetValue"/>
+					</FlexBox>
+					<FlexBox>
+							<Label text="{i18n>SalMan}:" tooltip="{i18n>SalMan}:" class="sapUiSmallMargin sapThemeHighlight-asColor" width="91px"/>
+							<Input id="salMan" placeholder="{i18n>selectSalMan}" valueLiveUpdate="true" width="100%" showValueHelp="true"
+							valueHelpOnly="true" valueHelpRequest="onOpenSalManDialog"/>
+							<core:Icon src="sap-icon://reset"  class="sapUiSmallMargin sapThemeHighlight-asColor" app:mydata="salMan" press="onResetValue"/>
+					</FlexBox>
+					<FlexBox>
+						<Label text="{i18n>PosType}:" tooltip="{i18n>PosType}:"  class="sapUiSmallMargin sapThemeHighlight-asColor" width="91px"/>
+						<Input id="posType" placeholder="{i18n>selectType}" valueLiveUpdate="true" width="100%" showValueHelp="true"
+						valueHelpOnly="true" valueHelpRequest="onOpenPosTypeDialog"/>
+						<core:Icon src="sap-icon://reset"  class="sapUiSmallMargin sapThemeHighlight-asColor" app:mydata="posType" press="onResetValue"/>
+					</FlexBox>
+					<FlexBox>
+							<Label text="{i18n>OrdId}:" tooltip="{i18n>OrdId}:" class="sapUiSmallMargin sapThemeHighlight-asColor" width="91px"/>
+							<Input id="ordId" placeholder="{i18n>enterId}" valueLiveUpdate="true"  width="100%" change="onChangeValue"/>
+							<core:Icon src="sap-icon://reset"  class="sapUiSmallMargin sapThemeHighlight-asColor" app:mydata="ordId" press="onResetValue"/>
+					</FlexBox>
+					<FlexBox>
+							<Label text="{i18n>MatNr}:" tooltip="{i18n>MatNr}:" class="sapUiSmallMargin sapThemeHighlight-asColor" width="91px"/>
+							<Input id="materialId" placeholder="{i18n>selectMaterial}" valueLiveUpdate="true" width="100%" showValueHelp="true"
+							valueHelpOnly="true" valueHelpRequest="onMaterialDialogOpen"/>
+							<core:Icon src="sap-icon://reset"  class="sapUiSmallMargin sapThemeHighlight-asColor" app:mydata="materialId" press="onResetValue"/>
+					</FlexBox>
+					<FlexBox>
+							<Label text="{i18n>OrdSerNum}:" tooltip="{i18n>OrdSerNum}:" class="sapUiSmallMargin sapThemeHighlight-asColor" width="91px"/>
+							<Input id="ordSerNum" placeholder="{i18n>enterId}" valueLiveUpdate="true" width="100%" change="onChangeValue"/>
+							<core:Icon src="sap-icon://reset"  class="sapUiSmallMargin sapThemeHighlight-asColor" app:mydata="ordSerNum" press="onResetValue"/>
+					</FlexBox>
+					<FlexBox>
+							<Label text="{i18n>DateFrom}:" tooltip="{i18n>DateFrom}:" class="sapUiSmallMargin sapThemeHighlight-asColor" width="91px"/>
+							<DatePicker id="dateFrom" placeholder="{i18n>enterDate}" valueFormat="yyyy-MM-dd" change="handleChange" class="sapUiSmallMarginBottom"/>
+							<core:Icon src="sap-icon://reset"  class="sapUiSmallMargin sapThemeHighlight-asColor" app:mydata="dateFrom" press="onResetValue"/>
+					</FlexBox>
+					<FlexBox>
+							<Label text="{i18n>DateTo}:" tooltip="{i18n>DateTo}:" class="sapUiSmallMargin sapThemeHighlight-asColor" width="91px"/>
+							<DatePicker id="dateTo" placeholder="{i18n>enterDate}" valueFormat="yyyy-MM-dd" change="handleChange" class="sapUiSmallMarginBottom"/>
+							<core:Icon src="sap-icon://reset"  class="sapUiSmallMargin sapThemeHighlight-asColor" app:mydata="dateTo" press="onResetValue"/>
+					</FlexBox>
+					<FlexBox>
+							<Label text="{i18n>OrdType}:" tooltip="{i18n>OrdTypeTip}:" class="sapUiSmallMargin sapThemeHighlight-asColor" width="91px"/>
+							<Input id="ordType" placeholder="{i18n>selectType}" valueLiveUpdate="true" width="100%" showValueHelp="true"
+							valueHelpOnly="true" valueHelpRequest="onOpenOrdTypeDialog"/>
+							<core:Icon src="sap-icon://reset"  class="sapUiSmallMargin sapThemeHighlight-asColor" app:mydata="ordType" press="onResetValue"/>
+					</FlexBox>
+					<FlexBox>
+							<Label text="{i18n>OrdStatus}:" tooltip="{i18n>OrdStatus}:" class="sapUiSmallMargin sapThemeHighlight-asColor" width="91px"/>
+							<Input id="ordStatus" placeholder="{i18n>selectState}" valueLiveUpdate="true" width="100%" showValueHelp="true"
+							valueHelpOnly="true" valueHelpRequest="onOpenStatusDialog" app:mydata="ordStatus"/>
+							<core:Icon src="sap-icon://reset"  class="sapUiSmallMargin sapThemeHighlight-asColor" app:mydata="ordStatus" press="onResetValue"/>
+					</FlexBox>
+					<!-- CR_P2S_207: rezygnacja z kolumny Status Dostawy
+					<FlexBox>
+							<Label text="{i18n>DlvStatus}:" tooltip="{i18n>DlvStatus}:" class="sapUiSmallMargin sapThemeHighlight-asColor" width="91px"/>
+							<Input id="dlvStatus" placeholder="{i18n>selectState}"  valueLiveUpdate="true" width="100%" showValueHelp="true"
+							valueHelpOnly="true" valueHelpRequest="onOpenStatusDialog" app:mydata="dlvStatus"/>
+							<core:Icon src="sap-icon://reset"  class="sapUiSmallMargin sapThemeHighlight-asColor" app:mydata="dlvStatus" press="onResetValue"/>
+					</FlexBox>
+					-->
+					<FlexBox>
+							<Label text="{i18n>InvStatus}:" tooltip="{i18n>InvStatus}:" class="sapUiSmallMargin sapThemeHighlight-asColor" width="91px"/>
+							<Input id="invStatus" placeholder="{i18n>selectState}"  valueLiveUpdate="true" width="100%" showValueHelp="true"
+							valueHelpOnly="true" valueHelpRequest="onOpenStatusDialog" app:mydata="invStatus"/>
+							<core:Icon src="sap-icon://reset"  class="sapUiSmallMargin sapThemeHighlight-asColor" app:mydata="invStatus" press="onResetValue"/>
+					</FlexBox>
+<!-- JDN: rezygnacja z kolumny GRUPA MATERIALOWA
+					<FlexBox>
+							<Label text="{i18n>Matkl}:" tooltip="{i18n>MatklTip}:" class="sapUiSmallMargin sapThemeHighlight-asColor" width="91px" />
+							<Input id="groupId" placeholder="wybierz grupę mat." valueLiveUpdate="true" width="100%" showValueHelp="true"
+							valueHelpOnly="true" valueHelpRequest="onOpenGrupyMatDialog"/>
+							<core:Icon src="sap-icon://reset"  class="sapUiSmallMargin sapThemeHighlight-asColor" app:mydata="groupId" press="onResetValue"/>
+					</FlexBox>
+-->
+					<FlexBox>
+							<Label text="{i18n>OrdOwn}:" tooltip="{i18n>OrdOwn}:"  class="sapUiSmallMargin sapThemeHighlight-asColor" width="151px"/>
+							<CheckBox id="ordOwn" text=" " select="onCheckBoxSelect" selected="false" width="156px"/>
+					</FlexBox>
+					<FlexBox>
+							<Label  text="{i18n>Incomplete}:"  tooltip="{i18n>Incomplete}:"  class="sapUiSmallMargin sapThemeHighlight-asColor" width="151px"/>
+							<CheckBox id="incomplete" text=" " select="onCheckBoxSelect" selected="false" width="156px"/>
+					</FlexBox>
+
+					</FlexBox>
+						<Button id="SearchButton" text="{i18n>Search}" press="onOpenPositions"
+							class="sapUiSmallMarginEnd" />
+			</VBox>
+			
+			<layout:Grid defaultSpan="L3 M4 S6">
+				<layout:content>
+					<VBox id="vbShowFilter">
+						<layoutData>
+							<layout:GridData span="L12 M12 S12" />
+						</layoutData>
+						<FlexBox>
+								<Button text="{i18n>SearchAgain}" press="onShowFilter"
+									class="sapUiSmallMarginEnd" />
+								<Button text="{i18n>Export}" press="onExport" app:mydata="{/pozycje}"
+									class="sapUiSmallMarginEnd" />
+						</FlexBox>
+					</VBox>
+				</layout:content>
+			</layout:Grid>
+			
+			<!-- <table:Table id="PozycjeLista" rows="{/pozycje}" visibleRowCountMode="auto" rowHeight="20px" -->
+			<table:Table id="PozycjeLista" rows="{/OrderLineSet}" visibleRowCountMode="auto" rowHeight="20px" 
+						showColumnVisibilityMenu="true" enableBusyIndicator="true" noData="{i18n>NO_DATA_SELECTED}"
+						growingScrollToLoad="true" 
+						growing="true"
+						growingThreshold="20"
+						fixedColumnCount="1">
+			
+			            <!--<table:title>-->
+			            <!--<Text text="{i18n>RowCount}: {/pozycje/length}"></Text>-->
+			            <!--</table:title>-->
+			
+				<table:columns>
+			
+					<table:Column sortProperty="OrdId" filterProperty="OrdId" width="110px" showFilterMenuEntry="true">
+						<Label text="{i18n>OrdId}" tooltip="{i18n>OrdId}"/>
+						<table:template><Text text="{OrdId}" ></Text></table:template>
+					</table:Column>
+				
+					<table:Column sortProperty="OrdPosNr" filterProperty="OrdPosNr" width="70px" showFilterMenuEntry="true">
+						<Label text="{i18n>OrdPos}" tooltip="{i18n>OrdPosTip}"/>
+						<table:template><Text text="{OrdPosNr}" ></Text></table:template>
+					</table:Column>
+					
+					<!-- <table:Column sortProperty="OrdPosNr" filterProperty="OrdPosNr" width="60px" showFilterMenuEntry="false">
+						<Label text="{i18n>WasIs}" tooltip="{i18n>WasIs}"/>
+						<table:template><Text text="{= ${ItemType} === 'ZG4N' || ${ItemType} === 'ZG3N' ? ${i18n>PositionWas} : ${i18n>PositionIs} }"></Text></table:template>
+					</table:Column> -->
+					
+					<table:Column sortProperty="OrdNumber" filterProperty="OrdNumber" width="130px" showFilterMenuEntry="true">
+						<Label text="{i18n>OrdNumber}" tooltip="{i18n>OrdNumber}"/>
+						<table:template><Text text="{OrdNumber}" ></Text></table:template>
+					</table:Column>
+					
+					<table:Column sortProperty="PosType" filterProperty="PosType" width="70px" showFilterMenuEntry="true">
+						<Label text="{i18n>PosType}" tooltip="{i18n>PosTypeTip}"/>
+						<table:template><Text text="{PosType}" ></Text></table:template>
+					</table:Column>
+					
+					<table:Column sortProperty="MatName" filterProperty="MatName" width="200px" showFilterMenuEntry="true">
+						<Label text="{i18n>MatName}" tooltip="{i18n>MatName}"/>
+						<table:template><Text text="{MatName}" ></Text></table:template>
+					</table:Column>
+					
+					<table:Column sortProperty="MatNr" filterProperty="MatNr" width="110px" showFilterMenuEntry="true">
+						<Label text="{i18n>MatNr}" tooltip="{i18n>MatNr}"/>
+						<table:template><Text text="{MatNr}" ></Text></table:template>
+					</table:Column>
+					
+					<table:Column sortProperty="Werks" filterProperty="Werks" width="56px" showFilterMenuEntry="true">
+						<Label text="{i18n>Werks}" tooltip="{i18n>Werks}"/>
+						<table:template><Text text="{Werks}" ></Text></table:template>
+					</table:Column>
+					
+					<table:Column sortProperty="OrdType" filterProperty="OrdType" width="116px"  showFilterMenuEntry="true">
+						<Label text="{i18n>OrdType}" tooltip="{i18n>OrdTypeTip}"/>
+						<table:template><Text text="{= ${ReturnOrder} ? ${i18n>RTRN_ORD} : ${i18n>SALES_ORD} }" ></Text></table:template>
+					</table:Column>
+					
+					<table:Column sortProperty="OrdDate" filterProperty="OrdDate" width="104px"  showFilterMenuEntry="true">
+						<Label text="{i18n>OrdDate}" tooltip="{i18n>OrdDate}"/>
+						<table:template><Text text="{path: 'OrdDate', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd.MM.yyyy'}}" ></Text></table:template>
+					</table:Column>
+				
+					<table:Column sortProperty="OrdStatus" filterProperty="OrdStatus"  width="116px" showFilterMenuEntry="true">
+						<Label text="{i18n>OrdStatus}" tooltip="{i18n>OrdStatusTip}"/>
+						<table:template><Text text="{= ${OrdStatus} === 'C' ? ${i18n>FINISHED} : ${i18n>OPEN} }" ></Text></table:template>
+					</table:Column>
+				
+					<table:Column sortProperty="OrdAuthor" filterProperty="OrdAuthor" width="110px" showFilterMenuEntry="true">
+						<Label text="{i18n>OrdAuthor}" tooltip="{i18n>OrdAuthor}"/>
+						<table:template><Text text="{OrdAuthor}" ></Text></table:template>
+					</table:Column>
+				
+					<table:Column sortProperty="DlvDate" filterProperty="DlvDate" width="104px"  showFilterMenuEntry="true">
+						<Label text="{i18n>DlvDate}" tooltip="{i18n>DlvDate}"/>
+						<table:template><Text text="{path: 'DlvDate', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd.MM.yyyy'}}" ></Text></table:template>
+					</table:Column>
+				
+					<table:Column sortProperty="DlvStatus" filterProperty="DlvStatus" width="116px" showFilterMenuEntry="true">
+						<Label text="{i18n>DlvStatus}" tooltip="{i18n>DlvStatusTip}"/>
+						<table:template><Text text="{ path : 'DlvStatus', formatter: '._formatStatusText'}" ></Text></table:template>
+						<!--  <table:template><Text text="{= ${DlvStatus} === 'C' ? ${i18n>FINISHED} : ${i18n>OPEN} }" ></Text></table:template> -->
+					</table:Column>
+				
+					<table:Column sortProperty="DlvAuthor" filterProperty="DlvAuthor" width="110px"  showFilterMenuEntry="true">
+						<Label text="{i18n>DlvAuthor}" tooltip="{i18n>DlvAuthor}"/>
+						<table:template><Text text="{DlvAuthor}" ></Text></table:template>
+					</table:Column>
+				
+					<table:Column sortProperty="InvDate" filterProperty="InvDate" width="104px"  showFilterMenuEntry="true">
+						<Label text="{i18n>InvDate}" tooltip="{i18n>InvDate}"/>
+						<table:template><Text text="{path: 'InvDate', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd.MM.yyyy'}}" ></Text></table:template>
+					</table:Column>
+				
+					<table:Column sortProperty="InvStatus" filterProperty="InvStatus" width="116px" showFilterMenuEntry="true">
+						<Label text="{i18n>InvStatus}" tooltip="{i18n>InvStatusTip}"/>
+						<!--  <table:template><Text text="{= ${InvStatus} === 'C' ? ${i18n>FINISHED} : ${i18n>OPEN}}" ></Text></table:template> -->
+						<table:template><Text text="{ path : 'InvStatus', formatter: '._formatStatusText'}" ></Text></table:template>
+					</table:Column>
+				
+					<table:Column sortProperty="InvAuthor" filterProperty="InvAuthor" width="110px" showFilterMenuEntry="true">
+						<Label text="{i18n>InvAuthor}" tooltip="{i18n>InvAuthor}"/>
+						<table:template><Text text="{InvAuthor}" ></Text></table:template>
+					</table:Column>
+				
+					<!--<table:Column sortProperty="OrdAmount" filterProperty="OrdAmount" width="60px" showFilterMenuEntry="true">-->
+					<!--	<Label text="{i18n>OrdAmount}" tooltip="{i18n>OrdAmount}"/>-->
+					<!--	<table:template><Text text="{path: 'OrdAmount', type: 'sap.ui.model.type.Integer'}" ></Text></table:template>-->
+					<!--</table:Column>-->
+				
+					<table:Column sortProperty="OrdTotalAmount" filterProperty="OrdTotalAmount" width="60px" showFilterMenuEntry="true">
+						<Label text="{i18n>OrdAmount}" tooltip="{i18n>OrdAmount}"/>
+						 <table:template><Text text="{= ${ReturnOrder} ? ${path: 'RtrnAmount', type: 'sap.ui.model.type.Integer' } : ${ path : 'OrdTotalAmount', type: 'sap.ui.model.type.Integer' } }"/></table:template> 
+						<!--<table:template><Text text="{path: 'OrdTotalAmount', type: 'sap.ui.model.type.Integer'}" ></Text></table:template> -->
+					</table:Column>
+
+					<table:Column sortProperty="OrdLineGross" filterProperty="OrdLineGross" width="100px" showFilterMenuEntry="true"  hAlign="End">
+						<Label text="{i18n>OrdLineGross}" tooltip="{i18n>OrdLineGross}" hAlign="Begin" width="100%"/>
+						<table:template><Text text="{path: 'OrdLineGross', type: 'sap.ui.model.type.Number', formatOptions: {decimals: 2}}"></Text></table:template>
+					</table:Column>
+				
+					<table:Column sortProperty="Customer" filterProperty="Customer" width="110px" showFilterMenuEntry="true">
+						<Label text="{i18n>Customer}" tooltip="{i18n>Customer}"/>
+						<table:template><Text text="{Customer}" ></Text></table:template>
+					</table:Column>
+					
+					<table:Column sortProperty="CustomerInfo" filterProperty="CustomerInfo" width="240px" showFilterMenuEntry="true">
+						<Label text="{i18n>CustomerInfo}" tooltip="{i18n>CustomerInfo}"/>
+						<!-- <table:template><Text text="{CustomerInfo}" ></Text></table:template> -->
+	 				<table:template><Text text="{ parts: [ {path: 'CustomerName1'},{ path: 'CustomerName2'}, {path: 'CustomerPostCode'}, { path: 'CustomerCity1'}, {path: 'CustomerStreet'}], 
+							formatter: '.formatCustomer'}" ></Text>
+						</table:template>
+					</table:Column>
+				
+					<table:Column sortProperty="CustomerPersId" filterProperty="CustomerPersId" width="110px" showFilterMenuEntry="true">
+						<Label text="{i18n>CustomerPersId}" tooltip="{i18n>CustomerPersId}"/>
+						<table:template><Text text="{CustomerPersId}" ></Text></table:template>
+					</table:Column>
+					
+					<table:Column sortProperty="CustomerTaxNr" filterProperty="CustomerTaxNr" width="110px" showFilterMenuEntry="true">
+						<Label text="{i18n>CustomerTaxNr}" tooltip="{i18n>CustomerTaxNr}"/>
+						<table:template><Text text="{CustomerTaxNr}" ></Text></table:template>
+					</table:Column>
+					
+					<!--<table:Column sortProperty="OrdSerCnt" filterProperty="OrdSerCnt" width="70px" hAlign="Center" showFilterMenuEntry="true">-->
+					<!--	<Label text="{i18n>OrdSerCnt}" tooltip="{i18n>OrdSerCntTip}"/>-->
+						
+					<!--	<table:template>-->
+					<!--		<Button width="100%" text="{OrdSerCnt}" press="onShowSerial"	app:ordId="{OrdId}" app:ordPosNr="{OrdPosNr}"-->
+					<!--				class="sapUiSmallMarginEnd"  enabled="{=${OrdSerCnt} > 0 ? true : false}" >-->
+					<!--		</Button>-->
+					<!--	</table:template>-->
+					<!--</table:Column>-->
+				
+				
+					<table:Column sortProperty="OrdSerNumList" filterProperty="OrdLock" width="110px" showFilterMenuEntry="true">
+						<Label text="{i18n>OrdSerNumList}" tooltip="{i18n>OrdSerNumList}"/>
+						<table:template>
+							<Button visible="{=${HasSerials}}" text="{i18n>SN}" icon="sap-icon://drill-down" type="Emphasized" class="sapUiTinyMarginBeginEnd" press="openSNDialog"/>
+						<!-- <Text text="{OrdSerNumList}" ></Text> 05.04.2019-->
+						</table:template>
+					</table:Column>
+					
+					<table:Column sortProperty="OrdLock" filterProperty="OrdLock" width="60px" showFilterMenuEntry="true">
+						<Label text="{i18n>OrdLock}" tooltip="{i18n>OrdLock}"/>
+						<table:template><Text text="{OrdLock}" ></Text></table:template>
+					</table:Column>
+				
+					<table:Column sortProperty="InvNumber" filterProperty="InvNumber" width="110px" showFilterMenuEntry="true">
+						<Label text="{i18n>InvNumber}" tooltip="{i18n>InvNumber}"/>
+						<table:template><Text text="{InvNumber}" ></Text></table:template>
+					</table:Column>
+					
+            		<!--  P2S-KSEF-SD: [KSEF_1_GAP_12]  Zmiany w apps Fiori dla eFakt startmj{ 
+					<table:Column sortProperty="ZZKSEFID" filterProperty="ZZKSEFID" width="110px" showFilterMenuEntry="true">
+						<Label text="{i18n>ZZKSEFID}" tooltip="{i18n>ZZKSEFID}"/>
+						<table:template><Text text="{ZZKSEFID}" ></Text></table:template>
+					</table:Column>		
+					  -->	
+				
+					<table:Column sortProperty="DlvNumber" filterProperty="DlvNumber" width="110px" showFilterMenuEntry="true">
+						<Label text="{i18n>DlvNumber}" tooltip="{i18n>DlvNumber}"/>
+						<table:template><Text text="{DlvNumber}" ></Text></table:template>
+					</table:Column>
+				
+					<table:Column sortProperty="RcpNumber" filterProperty="RcpNumber" width="110px" showFilterMenuEntry="true">
+						<Label text="{i18n>RcpNumber}" tooltip="{i18n>RcpNumberTip}"/>
+						<table:template><Text text="{RcpNumber}" ></Text></table:template>
+					</table:Column>
+				
+					<!--<table:Column sortProperty="OrdKorNum" filterProperty="OrdKorNum" width="110px" showFilterMenuEntry="true">-->
+					<!--	<Label text="{i18n>OrdKorNum}" tooltip="{i18n>OrdKorNumTip}"/>-->
+					<!--	<table:template>-->
+					<!--		<Button visible="{=${HasCorr}}" -->
+					<!--				press="openCorrNoDialog" tooltip="{i18n>OrdKorNumList}" -->
+					<!--				icon="sap-icon://inspection" type="Default" class="sapUiSmallMarginBeginEnd"/>-->
+						<!--	<Text visible="{= !${HasCorr}}" text="{i18n>NOT_RELEVANT}"/> -->
+						<!-- <Text text="{OrdKorNum}" ></Text> -->
+					<!--	</table:template>-->
+					<!--</table:Column>-->
+<!-- JDN: rezygnacja z kolumny GRUPA MATERIALOWA	
+					<table:Column sortProperty="Matkl" filterProperty="Matkl" width="110px" showFilterMenuEntry="true">
+						<Label text="{i18n>Matkl}" tooltip="{i18n>MatklTip}"/>
+						<table:template><Text text="{Matkl}" ></Text></table:template>
+					</table:Column>
+-->				
+					<table:Column sortProperty="BillAccount" filterProperty="BillAccount" width="110px" showFilterMenuEntry="true">
+						<Label text="{i18n>BillAccount}" tooltip="{i18n>BillAccount}"/>
+						<table:template><Text text="{BillAccount}" ></Text></table:template>
+					</table:Column>
+<!--  PSy rezygnacja z kolumny SKŁAD		
+					<table:Column sortProperty="LgOrt" filterProperty="LgOrt" width="60px" showFilterMenuEntry="true">
+						<Label text="{i18n>LgOrt}" tooltip="{i18n>LgOrt}"/>
+						<table:template><Text text="{LgOrt}" ></Text></table:template>
+					</table:Column> -->
+<!-- JDN: rezygnacja z kolumny DOKUMENT KSIEGOWY	
+					<table:Column sortProperty="AccDocId" filterProperty="AccDocId" width="110px" showFilterMenuEntry="true">
+						<Label text="{i18n>AccDocId}" tooltip="{i18n>AccDocIdTip}"/>
+						<table:template><Text text="{AccDocId}" ></Text></table:template>
+					</table:Column>
+					<table:Column sortProperty="AccDocStatus" filterProperty="AccDocStatus" width="36px" showFilterMenuEntry="true">
+						<Label text="{i18n>AccDocStatus}" tooltip="{i18n>AccDocStatusTip}"/>
+						<table:template><Text text="{AccDocStatus}" ></Text></table:template>
+					</table:Column>
+-->				
+			
+				</table:columns>
+				
+				<table:footer>
+					<FlexBox>
+						<FlexBox>
+							<Label text="{i18n>GROSS_SUM_LAB}" class="sapUiSmallMargin sapThemeHighlight-asColor" width="150px"/>
+							<Input id="totalValue" width="100%" enabled="false" value="{OrderLineSet>/0/GrossSum}"/>
+							<!--<Input id="totalValue" width="100%" enabled="false"/>-->
+						</FlexBox>
+						<FlexBox>
+							<Label text="{i18n>AMOUNT_SUM_LAB}" class="sapUiSmallMargin sapThemeHighlight-asColor" width="150px"/>
+							<Input id="totalAmount" width="100%" enabled="false" value="{OrderLineSet>/0/AmountSum}"/>
+							<!--<Input id="totalAmount" width="100%" enabled="false" />-->
+						</FlexBox>
+						<FlexBox>
+							<Label text="{i18n>FOUND_ROWS_LAB}" class="sapUiSmallMargin sapThemeHighlight-asColor" width="150px"/>
+							<Input id="totalRows" width="100%" enabled="false" value="{OrderLineSet>/0/RowSum}"/>
+						</FlexBox>
+					</FlexBox>
+				</table:footer>
+			
+			  </table:Table>
+			
+		</content>
+	</Panel>
+</mvc:View>
